@@ -11,13 +11,20 @@ const App = () => {
     {id: uuid(), text: 'Bread'},
     {id: uuid(), text: 'Juice'},
   ]);
+
+  const deleteItem = (id) => {
+    setItems(prevItems => {
+      return prevItem.filter(item => item.id != id);
+    });
+  }
   return (
     <View style={styles.container}>
       {/* <Text style={styles.text}>Hello WOrld</Text> */}
       <Header title="Shopping List" />
       <FlatList
         data={items}
-        renderItem={({item}) => <ListItem item={item} />}
+        renderItem={({item}) => <ListItem item={item} deleteItem={deleteItem} />
+        }
       />
       {/* <Image
         source={{uri: 'https://randomuser.me/api/portraits/men/1.jpg'}}
