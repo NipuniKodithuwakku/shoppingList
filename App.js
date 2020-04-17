@@ -23,8 +23,9 @@ const App = () => {
       <Header title="Shopping List" />
       <FlatList
         data={items}
-        renderItem={({item}) => <ListItem item={item} deleteItem={deleteItem} />
-        }
+        renderItem={({item}) => (
+          <ListItem item={item} deleteItem={deleteItem} />
+        )}
       />
       {/* <Image
         source={{uri: 'https://randomuser.me/api/portraits/men/1.jpg'}}
