@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {View, StyleSheet, FlatList, Text} from 'react-native';
 import Header from './components/header';
 import ListItem from './components/ListItem';
+import AddItem from './components/AddItem';
+
 import {uuid} from 'uuid4';
 
 const App = () => {
@@ -12,15 +14,16 @@ const App = () => {
     {id: uuid(), text: 'Juice'},
   ]);
 
-  const deleteItem = (id) => {
+  const deleteItem = id => {
     setItems(prevItems => {
       return prevItem.filter(item => item.id != id);
     });
-  }
+  };
   return (
     <View style={styles.container}>
       {/* <Text style={styles.text}>Hello WOrld</Text> */}
       <Header title="Shopping List" />
+      <AddItem />
       <FlatList
         data={items}
         renderItem={({item}) => (
