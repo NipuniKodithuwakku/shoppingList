@@ -19,11 +19,16 @@ const App = () => {
       return prevItem.filter(item => item.id != id);
     });
   };
-  const addItem = (item) => {
-    setItems(prevItems => {
-      return [{id:uuid(), text}, ...prevItems];
+  const addItem = text => {
+    if(!text){
+      Alert.alert('Error',"please Enter an Item", {text:'ok'});
+
+    }else{
+      setItems(prevItems => {
+      return [{id: uuid(), text}, ...prevItems];
     });
   }
+   
   return (
     <View style={styles.container}>
       {/* <Text style={styles.text}>Hello WOrld</Text> */}
@@ -43,7 +48,7 @@ const App = () => {
   );
 };
 
-export default App;
+
 
 const styles = StyleSheet.create({
   container: {
@@ -62,3 +67,4 @@ const styles = StyleSheet.create({
   //   borderRadius: 100 / 2,
   // },
 });
+export default App;

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -20,7 +20,7 @@ const AddItem = ({title, addItem}) => {
         style={styles.input}
         onChangeText={onChange}
       />
-      <TouchableOpacity style={styles.btn} onPress={() => addItem()}>
+      <TouchableOpacity style={styles.btn} onPress={() => addItem(text)}>
         <Text style={styles.btnText}>
           <Icon name="plus" size={20} />
           Add Item
